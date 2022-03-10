@@ -21,7 +21,7 @@ const HeaderHome = () => {
     </div>
 </section>
 
-     );
+    );
 }
- 
+
 export default HeaderHome;
