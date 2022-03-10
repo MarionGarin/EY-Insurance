@@ -1,0 +1,43 @@
+.newCar{
+        background-color: #f6f6fa;
+        height: 100vh;
+        
+      }
+
+      .containerNewCar {
+        justify-content: center;
+        align-content: center;
+        display: flex;
+      }
+      
+      .containerLogo-C {
+        display: flex;
+        flex-direction: column;
+      }
+    .btn-N{
+       background-color: rgba(111, 253, 168, 1);
+       margin-top: 1rem;
+       border: none;
+       width: 270px;
+       height: 50px;
+    }
+    .btn-NE{
+        margin-top: 1rem;
+        border: none;
+        width: 270px;
+        height: 50px;
+    }
+.logoCoche{
+    width: 50vw;
+    height: auto;
+}
+.logoCheck{
+    width: 40vw;
+    height: auto;
+}
+.containerPass{
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    margin-top: 4rem;
+}

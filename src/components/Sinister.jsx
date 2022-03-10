@@ -37,7 +37,7 @@ const Sinister = () => {
            
           </div>
           <div className="continue-btn">
-          <button type="button" class="btn btn-primary next-btn">Basic</button>
+          <button type="button" class="btn btn-primary next-btn">Siguiente</button>
           </div>
         </div>
       </div>
