@@ -1,4 +1,8 @@
 import React, {useState} from "react";
+import {Link} from "react-router-dom";
+import HeaderBack from "./HeaderBack";
+import back from '../images/back.png';
+import '../styles/upload.css';
 // import camera from "../img/icons/camera.png";
 import { app, db} from "../firebase"
 import { 
@@ -59,12 +63,21 @@ const UpDocuments = () => {
     
     
     return (
-        <>
+        <section className="upload-container">
+    
+        <div className="back-icon">
+        < HeaderBack/>
+         <Link to ={"/describe"}>
+         <img className= "back" src={back} alt="Home icon" />
+         </Link>
+         </div>
+            <div className= "upload-text text-center">
             <h1>Subir Documentos</h1>
             <p>A continuación, adjunta fotografías del incidente y/o los  archivos que sean pertinentes</p>
+            </div>
             <div className="col">
-                <div className="mb-3">
-                    <label htmlFor="formFile" className="form-label">Default file input example</label>
+                <div className="mb-3 text-center">
+                    <label htmlFor="formFile" className="form-label">Formatos permitidos: JPG y PDF (3 mb máx.)</label>
                     <input className="form-control" type="file" id="formFile" placeholder="Añade archivo" onChange={upPhoto}/>
                 </div>
                 <div>
@@ -72,9 +85,14 @@ const UpDocuments = () => {
                 </div>
                     
             </div>
-            <button type="button" className="btn btn-primary">Primary</button>
+            <button type="button" className="btn btn-primary">Subir imagen</button>
+            <div className="continue-btn">
+            <Link to = "/newcar">
+          <button type="button" class="btn btn-dark next-btn">Siguiente</button>
+          </Link>
+          </div>
             
-        </>
+        </section>
     )
     }
 

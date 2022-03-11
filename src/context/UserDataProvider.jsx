@@ -86,7 +86,7 @@ const UserDataProvider = (props) => {
    /*  const day = moment(date).format('D-MMM-YY'); */
    if (insurance.length === 0){
      // console.log("El pedido está vacío");
-      setError("El pedido está vacío")
+     // setError("El pedido está vacío")
       return;
       
     }

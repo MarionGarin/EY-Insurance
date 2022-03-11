@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+EY INSURANCE: APLICACIÓN PARA COBRANZA DE SEGURO AUTOMOTRIZ
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+INTRODUCCIÓN
 
-## Available Scripts
+El presente proyecto ha sido desarrollado en el contexto de la "Hackatón Laboratoria Chile 2022", una competencia de desarrolladoras egresadas del Bootcamp de Laboratoria, en este caso pertenecientes a la generación SCL-018. 
 
-In the project directory, you can run:
+El desafío fue propuesto por la empresa EY, la cual nos encargó el prototipado y puesta en marcha de una app que permitiera a los clientes de una compañía de seguros ficticia gestionar la solicitud de cobertura de su seguro automotriz en caso de diversos siniestros. 
 
-### `npm start`
+INVESTIGACIÓN UX
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Para desarrollar el prototipo indagamos respecto de diversas aplicaciones que prestan servicios de cobertura ante distintas situaciones de la vida cotidiana, en especial cobertura de salud (Isapres). En ese contexto concluimos que, en general, dichas aplicaciones contenían demasiada información en sus interfaces, lo que podía ser complejo para el usuario que deseara reportar un siniestro automotriz de forma expedita. 
+Esta última reflexión nos llevó a ponernos en el lugar de quien sufre un evento de esta naturaleza, llámese robo de vehículo, accidente o cualquier tipo de perturbación. Por ello decidimos trabajar desde la empatía, bajo el lema de que somos "personas desarrollando para personas", con la finalidad de poder comprender realmente el problema o dolor del usuario que requiere una solución tecnológica como la que desarrollamos. 
+Otro valor fundamental que tuvimos en cuenta en nuestra etapa de diseño fue la confianza, pues comprendimos que EY es una empresa que busca comunicar precisamente ese aspecto a sus clientes. 
+Como resultado de diversas iteraciones, creamos un prototipo minimalista y de fácil uso, donde el usuario comienza su interacción con la app en una vista de menú, a partir de la cual puede realizar tres acciones: ingresar un nuevo siniestro, ver sus pólizas vigentes y consultar sus eventos pasados (es decir, su historial de siniestros denunciados).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ASPECTOS TÉCNICOS Y FUNCIONALIDAD
 
-### `npm test`
+La aplicación está desarrollada en un concepto Mobile First. 
+Para desarrollarla se utilizó React, a partir de la combinación de vistas y componentes. 
+El almacenamiento de los datos se hizo en Firebase, junto con el Deploy de la página. 
+Para el estilo se utilizó Bootstrap junto con CSS3.
+Además se empleó la librería Date-Fns para gestionar el calendario. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+CONCLUSIONES Y PROYECCIONES HIPOTÉTICAS
 
-### `npm run build`
+Consideramos que una app que proporcione a los clientes una experiencia de uso amigable e intuitiva podría hacer la diferencia al momento de elegir el prestador de un servicio, e inclinar a una persona a contratar con el proveedor que le facilite los canales de comunicación más efectivos y minimalistas. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Este último concepto -el minimalismo estético y de flujo - es muy relevante tratándose de una app como la propuesta por EY, pues en un momento complejo como el que implica un siniestro vehicular, los usuarios necesitan formas sencillas de solicitar asistencia por parte de las aseguradoras y activar las coberturas de sus pólizas. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Visualizamos también ciertas oportunidades de mejora en nuestra app, principalmente la posibilidad de que el usuario pueda descargar una copia de sus pólizas vigentes y de que pueda compartir por whatsapp el contenido de la solicitud de cobertura al terminar el proceso, en caso de que necesite comunicarlo a alguien. 

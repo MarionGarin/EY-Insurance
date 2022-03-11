@@ -1,0 +1,23 @@
+.describe-container{
+    background-color: #F6F6FA;
+    height: 100vh;
+    
+}
+
+.describe-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text-box{
+    width: 100%;
+}
+
+.save-btn {
+    background-color: #ffe600;
+    border: none;
+    color: #2E2E38;
+    font-weight: bold;
+   
+}

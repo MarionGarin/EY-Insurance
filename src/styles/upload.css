@@ -1,0 +1,11 @@
+.upload-container {
+    background-color: #F6F6FA;
+    height: 100vh;
+
+}
+
+.upload-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

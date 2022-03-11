@@ -1,11 +1,12 @@
 import React from "react";
 import "../styles/newcar.css";
-import HeaderHome from "./HeaderHome";
+import HeaderBack from "./HeaderBack";
+
 
 const PassEvent= () => {
   return (
     <section className="newCar">
-      <HeaderHome />
+      <HeaderBack />
       <div className="containerPass">
       <div className="btn-confirm">
         <h1>Confirmar información</h1>

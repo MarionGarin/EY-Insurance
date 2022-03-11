@@ -51,3 +51,11 @@
     font-size: 1rem;
   
 }
+
+.back-icon {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    bottom: 10vh;
+     
+   }
