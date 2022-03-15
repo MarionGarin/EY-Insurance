@@ -5,26 +5,38 @@ import {
   addDoc,
   collection,
 } from "firebase/firestore"
+import { useNavigate } from "react-router-dom";
 
 import { db } from "../firebase";
 export const userContext = React.createContext();
 
+
+
 const UserDataProvider = (props) => {
 
-  const { datos } = React.useContext(dataContext);
+  const { datos, event } = React.useContext(dataContext);
   const { uidData, setError } = React.useContext(LoginContext);
-  
   const [nombre, setName] = React.useState("");
   const [apellidos, setApellidos] = React.useState("");
   const [auto, setAuto] = React.useState([]);
   const [poliza, setPoliza] = React.useState([]);
-  const [siniestro, setSiniestro] = React.useState([]);
+ const [siniestro, setSiniestro] = React.useState([]);
+  
+ let navigate = useNavigate();
+
+  // estados de ingreso nuevo siniestro
+
+  const [typeSinister, setTypeSinister] = React.useState("");
+  const [carSinister, setCarSinister] = React.useState([]);
 
 
   // filter para obtener solo datos del usuario (uid)
   
   const user = datos.filter((e) => e.id === uidData)
-  console.log(user)
+  const events = event.filter((e) => e.uid === uidData)
+
+  //console.log(events) 
+  //console.log(user)
 
 
 
@@ -39,65 +51,28 @@ const UserDataProvider = (props) => {
             setSiniestro(item.siniestro)
     ))
   }, [user])
-
-
-/*  React.useEffect(() => {
-    user.map((item) => (
-        [item.poliza].map((ele) => (
-            setPoliza(ele.poliza1)
-        ))
-    ))
-   }, [user]) */
-
-  console.log(auto)
-  console.log(poliza)
-  console.log(siniestro)
-
-
-  // siniestro
-
-  const [insurance, setInsurance] = React.useState([]);
-
-  const agregarAuto = (item) => {
-    const autoInfo = {
-      modelo: item.modelo,
-      marca: item.marca,
-      patente: item.patente
-    }
-
-    setInsurance([...insurance, autoInfo])
-
-  }
-
-  const agregarPoliza = (item) => {
-    const polizaInfo = {
-      codigo: item.codigo,
-    }
-
-    setInsurance([...insurance, polizaInfo])
-
-  }
-
-  console.log(insurance)
+ 
 
   const agregarFire = async (e) => {
     e.preventDefault();
     const date = new Date();
    /*  const day = moment(date).format('D-MMM-YY'); */
-   if (insurance.length === 0){
-     // console.log("El pedido está vacío");
-     // setError("El pedido está vacío")
-      return;
-      
-    }
+
     try {
-        const docRef = await addDoc(collection(db, 'users'),{
+        const docRef = await addDoc(collection(db, 'sinister'),{
             date: date,
-            seguro: insurance,
+            auto: carSinister,
             uid: uidData,
+            estado: "Solicitud ingresada",
+            tipo: typeSinister,
+            
         })
         setError(null)
+        console.log('funciona :)')
+        navigate("/sendevent");
+
         return docRef
+        
 
     } catch(error){
         console.log(error)
@@ -111,9 +86,12 @@ const UserDataProvider = (props) => {
     apellidos,
     auto,
     poliza,
-    agregarAuto,
-    agregarPoliza,
-    agregarFire
+    events,
+    agregarFire,
+    setTypeSinister,
+    setCarSinister,
+    
+
     
   };
 
@@ -126,4 +104,3 @@ const UserDataProvider = (props) => {
 };
 
 export default UserDataProvider;
-

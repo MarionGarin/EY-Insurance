@@ -1,11 +1,11 @@
 import React from 'react';
 import { userContext } from "../context/UserDataProvider";
 import car from "../images/car.png";
-import HeaderHome from './HeaderHome.jsx'
+import HeaderHome from './HeaderHome';
 import '../styles/policies.css';
 
 const Policies = () => {
-    const { nombre, auto, poliza } = React.useContext(userContext);
+    const {  auto, poliza } = React.useContext(userContext);
 
     return (
         <section className="policies-container">
@@ -33,7 +33,7 @@ const Policies = () => {
                                         <div className= "policy-info" key={id}>
                                             <p className="card-text policy" > Póliza: {item.codigo} Vigencia: {item.vigencia} </p>
                                             <p className="card-text payment">
-                                                <small className="text-muted">{item.estado}</small>
+                                                <p className="text-success h3">{item.estado}</p>
                                             </p>
                                         </div>
                                         

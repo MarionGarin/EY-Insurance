@@ -16,52 +16,34 @@ import {
     collection, 
     addDoc,
     getDocs } from "firebase/firestore"
-import { LoginContext } from "../context/LoginProvider";
 
     // Create a root reference
     const storage = getStorage(app);
 
 const UpDocuments = () => {
 
-    const {uidData} = React.useContext(LoginContext)
-
-   // Guardar nombre de imagen en Firestore
+    /* // Guardar nombre de imagen en Firestore
     const saveImageRef = async(data)=> {
     try {
-        const docRef = await addDoc(collection(db, 'imagen'), data)
+        const docRef = await addDoc(collection(db, 'images'), data)
 
         console.log('Document written with ID: ', docRef.id)
     } catch(e) {
         console.log('Error adding document: ', e)
     }
-    }
+    } */
 
-    const upPhoto = async(e) => {
-        try {
-        // detectar archivo
+    const upPhoto = (e) => {
+         // detectar archivo
         const archivoLocal = e.target.files[0];
         console.log(archivoLocal)
         // cargarlo a firebase storage
         const archivoRef = ref(storage, `${archivoLocal.name}`);
         console.log(archivoRef)
 
-        const snapshot = await uploadBytes(archivoRef, archivoLocal )
-        let timestamp = Date.now()
-        let fileName = `${timestamp}_${archivoLocal.name}`
-            saveImageRef({ 
-                uidData,
-                name: fileName,
-                metadata: {
-                    contentType: snapshot.metadata.contentType,
-                    size: snapshot.metadata.size,
-                    created: snapshot.metadata.timeCreated
-                }
-            })
-        
-        }
-        catch(e) {
-            console.log('Error uploading File: ', e)
-        }
+        uploadBytes(archivoRef, archivoLocal ).then((snapshot) => {
+            console.log('Uploaded a blob or file!');
+        });
         
     } 
 
@@ -78,18 +60,16 @@ const UpDocuments = () => {
             console.log('Error getting File URL: ', e)
         }
     } */
-    // comentario de prueba
     
     
     return (
         <section className="upload-container">
-    
         <div className="back-icon">
-        < HeaderBack/>
-         <Link to ={"/describe"}>
-         <img className= "back" src={back} alt="Home icon" />
-         </Link>
-         </div>
+        <HeaderBack />
+        <Link to ={"/selectcar"}>
+        <img className= "back" src={back} alt="Home icon" />
+        </Link>
+        </div>
             <div className= "upload-text text-center">
             <h1>Subir Documentos</h1>
             <p>A continuación, adjunta fotografías del incidente y/o los  archivos que sean pertinentes</p>

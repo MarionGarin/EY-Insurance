@@ -6,8 +6,8 @@ import back from "../images/back.png";
 const NavSinister = () => {
   return (
     <header>
-      <nav class="navbar navbar-light bg-light">
-        <div class="col-md-4 ms-4">
+      <nav className="navbar navbar-light bg-light">
+        <div className="col-md-4 ms-4">
           <Link to={`/home`}>
             <img
               src={back}
@@ -19,7 +19,7 @@ const NavSinister = () => {
           </Link>
         </div>
 
-        <div class="col-auto me-4">
+        <div className="col-auto me-4">
           <Link to={`/`}>
             <img
               src={home}

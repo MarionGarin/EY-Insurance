@@ -4,7 +4,13 @@
     
   }
   .containerEvents{
+    border: dark;
     justify-content: center;
     align-content: center;
     display: flex;
+    flex-direction: column;
+  }
+
+  .car-event {
+    background: #ffffff;
   }

@@ -15,7 +15,7 @@ const HeaderHome = () => {
     <img className= "close_session" src={close_session} alt="Close session icon"  onClick={()=> signOff()} />
     </div>
     <div className="home-box">
-        <Link to={"/home"}>
+    <Link to={"/home"}>
     <img className= "home" src={home} alt="Home icon" />
     </Link>
     </div>

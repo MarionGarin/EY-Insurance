@@ -14,13 +14,12 @@ console.log(dateSelected);
 
     return ( 
     <section className="date-container">
-        
          <div className="back-icon">
-         <HeaderBack/>
-         <Link to ={"/sinister"}>
-         <img className= "back" src={back} alt="Home icon" />
-         </Link>
-         </div>
+          <HeaderBack />
+          <Link to ={"/selectcar"}>
+          <img className= "back" src={back} alt="Home icon" />
+          </Link>
+          </div>
             <div className="date-title">
                     <h1>¿Cuándo sucedió?</h1>
                     

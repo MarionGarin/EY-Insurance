@@ -21,6 +21,7 @@ const [modalActive, setModalActive] = React.useState(false)
 const [idAction, setIdAction] = React.useState()
 
 const [status, setStatus] = React.useState(0)
+const [event, setEvent] = React.useState([]);
 
 
 
@@ -39,6 +40,21 @@ React.useEffect(() => {
 
 }, [])
 
+React.useEffect(() => {
+  onSnapshot(
+    collection(db, "sinister"),
+    (snapshot) => {
+      const events = snapshot.docs.map((event) => {
+        return { ...event.data(), id: event.id };
+      })
+      //console.log(orders)
+      setEvent(events);
+    }
+  )
+
+}, [])
+
+//console.log(event)
 
  const totalProps = {
      cliente, 
@@ -52,6 +68,7 @@ React.useEffect(() => {
      status, 
      modalActive,
      setModalActive,
+     event
      
  }
 
