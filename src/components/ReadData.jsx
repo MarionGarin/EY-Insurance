@@ -13,7 +13,8 @@ const ReadData = () => {
     <div className="mt-5">
       <h1> ReadData </h1>
 
-      {datos.filter((e) => e.uid === uidData)
+      {
+      datos.filter((e) => e.uid === uidData)
       .map((item, id) => (
         <p key={id} className="mt-3">
           {" "}

@@ -19,7 +19,7 @@ const HeaderBack = () => {
     </div>
 </section>
 
-     );
+    );
 }
- 
+
 export default HeaderBack;

@@ -72,4 +72,5 @@ const statusChange = async (variable) => {
   )
 }
 
+
 export default DescribeSinister

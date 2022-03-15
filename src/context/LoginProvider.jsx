@@ -8,10 +8,9 @@ import {
   //createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   //updateProfile,
-
-  onAuthStateChanged, 
+  onAuthStateChanged,
   sendPasswordResetEmail,
-  signOut
+  signOut,
 } from "firebase/auth";
 
 const auth = getAuth(app);
@@ -28,13 +27,13 @@ const LoginProvider = (props) => {
   const [esRegistro, setEsRegistro] = React.useState(false);
   const [uidData, setUid] = React.useState("");
 
- 
+  const [message, setMessage] = React.useState("");
+
 
   //const history = useHistory()
   let navigate = useNavigate();
 
-
- /*  // crear cuenta con contraseña
+  /*  // crear cuenta con contraseña
 
   const userRegister = (email, password, name) => {
     createUserWithEmailAndPassword(auth, email, password)
@@ -68,7 +67,6 @@ const LoginProvider = (props) => {
       });
 
   }; */
-
 
   // login con cuenta ya creada
   const userLogin = (email, password) => {
@@ -109,58 +107,53 @@ const LoginProvider = (props) => {
   const [firebaseUser, setFirebaseUser] = React.useState(false);
 
   React.useEffect(() => {
-    
-      const auth = getAuth();
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          const uid = user.uid;
-          setFirebaseUser(user)
-          setUid(uid)
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        setFirebaseUser(user);
+        setUid(uid);
 
-          
-          // ...
-        } else {
-          setFirebaseUser(null)
-          navigate("/");
-        }
-      });
-  
+        // ...
+      } else {
+        setFirebaseUser(null);
+        navigate("/");
+      }
+    });
   }, []);
 
   const signOff = () => {
-  signOut(auth).then(() => {
-    console.log('sesión cerrada')
-  }).catch((error) => {
-    // An error happened.
-  });
-}
+    signOut(auth)
+      .then(() => {
+        console.log("sesión cerrada");
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
 
-const resetPassword = (email) => {
-  sendPasswordResetEmail(auth, email)
-  .then(() => {
-    console.log('contraseña actualizada')
+  const resetPassword = (email) => {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        console.log("contraseña actualizada");
+        setMessage("Revisa tu correo para actualizar contraseña.");
 
-    navigate("/");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.code === "auth/missing-email") {
+          setError("Este correo no está registrado.");
+        }
+        if (error.code === "auth/user-not-found") {
+          setError("Este correo no está registrado.");
+        }
 
-  })
-  .catch((error) => {
-    console.log(error)
-    if (error.code === "auth/missing-email") {
-      setError("Este correo no está registrado.");
-
-    } 
-    if (error.code === "auth/user-not-found") {
-        setError("Este correo no está registrado.");
-      }
-
-    // ..
-  });
-}
-
-
+        // ..
+      });
+  };
 
   const totalProps = {
-
     //userRegister,
 
     userLogin,
@@ -177,10 +170,9 @@ const resetPassword = (email) => {
     setEmail,
     signOff,
     firebaseUser,
-
+    message,
     resetPassword,
-    uidData
-
+    uidData,
   };
 
   return (

@@ -14,9 +14,6 @@ import PassEvent from './components/PassEvent';
 import SendEvent from './components/SendEvent';
 
 
-
-
-
 const App = () => {
   return (
     <>
